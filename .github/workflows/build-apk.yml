@@ -18,14 +18,11 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: إعداد أندرويد SDK
-      uses: android-actions/setup-android@v3
-
     - name: منح صلاحيات التنفيذ لـ Gradle
       run: chmod +x gradlew
 
     - name: بناء APK (Debug)
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --no-daemon
 
     - name: رفع ملف APK (Artifact)
       uses: actions/upload-artifact@v4
