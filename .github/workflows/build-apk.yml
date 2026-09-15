@@ -2,7 +2,7 @@ name: Chess (APK) بناء تطبيق سهم
 
 on:
   push:
-        branches: [ main ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -17,6 +17,9 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+
+    - name: إعداد أندرويد SDK
+      uses: android-actions/setup-android@v3
 
     - name: منح صلاحيات التنفيذ لـ Gradle
       run: chmod +x gradlew
